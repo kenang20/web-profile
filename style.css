@@ -1,0 +1,308 @@
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #1b0034; /* deep space purple */
+    color: #eee;
+    line-height: 1.6;
+    background: radial-gradient(circle at top left, #3b0a57, #1b0034, #0a0019);
+    overflow-x: hidden;
+}
+
+/* Navbar */
+header.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(58, 0, 96, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #8e44ad;
+}
+
+header.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f5f5ff;
+    text-shadow: 0 0 10px #9b59b6;
+}
+
+header.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header.navbar nav ul li a {
+    color: #f5f5ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header.navbar nav ul li a:hover {
+    color: #9b59b6;
+    text-shadow: 0 0 8px #9b59b6;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #3b0a57, #6a0dad, #1b0034);
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('images/stars.png') repeat;
+    top: -50%;
+    left: -50%;
+    animation: starMove 60s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes starMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #9b59b6;
+    box-shadow: 0 0 25px #9b59b6, 0 0 50px #8e44ad;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero .btn {
+    padding: 10px 20px;
+    background: #9b59b6;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+}
+
+.hero .btn:hover {
+    background: #8e44ad;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #9b59b6, 0 0 40px #8e44ad;
+}
+
+/* Sections */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+.section:nth-of-type(1){animation-delay:0.3s;}
+.section:nth-of-type(2){animation-delay:0.6s;}
+.section:nth-of-type(3){animation-delay:0.9s;}
+.section:nth-of-type(4){animation-delay:1.2s;}
+.section:nth-of-type(5){animation-delay:1.5s;}
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards and Project Cards */
+.cards, .projects-container, .skills-container, .education-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card, .project-card, .edu-card {
+    background: rgba(58, 0, 96, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover, .project-card:hover, .edu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(155, 89, 182, 0.7);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px #9b59b6;
+}
+
+/* Skills */
+.skill {
+    width: 300px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.progress-bar {
+    height: 15px;
+    background: #9b59b6;
+    border-radius: 10px;
+    margin-top: 5px;
+    width: 0;
+    animation: fillProgress 2s forwards;
+}
+
+.skill .progress-bar {
+    width: var(--width);
+}
+
+@keyframes fillProgress {
+    to { width: var(--width); }
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #9b59b6;
+    background: rgba(58, 0, 96, 0.6);
+    color: #fff;
+    transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #8e44ad;
+}
+
+.contact-form button {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: #9b59b6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+}
+
+.contact-form button:hover {
+    background: #8e44ad;
+    transform: scale(1.05);
+}
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 12px;
+    background: rgba(155, 89, 182, 0.6); /* semi-transparent purple */
+    box-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #9b59b6, 0 0 40px #8e44ad;
+}
+
+.social-links a:hover::after {
+    opacity: 1;
+    top: -25%;
+    left: -25%;
+}
+#hobbies-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#hobbies-list li {
+    background: rgba(155, 89, 182, 0.5);
+    padding: 10px 15px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 0 10px #9b59b6, 0 0 20px #8e44ad;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#hobbies-list li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #9b59b6, 0 0 40px #8e44ad;
+}
+

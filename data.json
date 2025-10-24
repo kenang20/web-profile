@@ -1,0 +1,15 @@
+{
+  "skills": [
+    { "name": "HTML & CSS", "level": "90%" },
+    { "name": "JavaScript", "level": "75%" },
+    { "name": "Figma & Design", "level": "85%" },
+    { "name": "Photoshop & Canva", "level": "80%" }
+  ],
+  "hobbies": [
+    "Drawing & Painting",
+    "Baking Cupcakes",
+    "Journaling",
+    "Exploring Cozy Cafés",
+    "DIY Crafts"
+  ]
+}
